@@ -1,0 +1,35 @@
+<!-- From Interface -->
+<!-- Interpolation -->
+<h1>
+    Store name: {{storeinfo.name}}
+</h1>
+
+<!-- Interpolation -->
+<!-- <img src="{{storeinfo.coverImgUrl}}" alt=""> -->
+
+
+<!-- Property binding -->
+<!-- Structural Directive => *ngIf ="condition" -->
+<img *ngIf="showImg" [src]="storeinfo.coverImgUrl">
+
+
+<!-- Loop => for of -->
+<!-- Structural Directive -->
+<!--*ngFor  -->
+<ul>
+    <li *ngFor="let loc of storeinfo.branches">
+        {{loc}}
+    </li>
+</ul>
+
+<!-- Event binding -->
+<button class="btn btn-primary" role="button" (click)="toggleImg()"> Show/hide Img</button>
+
+
+<!-- Data from class -->
+<h1> From class : {{info.name}}</h1>
+
+
+
+
+
