@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
 
   // Classes
   info:InfoClass;
+customerFeedback:string="good";
+
   constructor() { 
     this.info=new InfoClass('ITI Data from class','https://fakeimg.pl/250x100/',['Alex',"Qena"])
   }

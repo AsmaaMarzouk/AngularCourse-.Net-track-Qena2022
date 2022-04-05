@@ -1,7 +1,9 @@
 <!-- From Interface -->
 <!-- Interpolation -->
+<!-- ? => check if object null or not -->
+<!-- can't read property -->
 <h1>
-    Store name: {{storeinfo.name}}
+    Store name: {{storeinfo?.name}}
 </h1>
 
 <!-- Interpolation -->
@@ -28,6 +30,16 @@
 
 <!-- Data from class -->
 <h1> From class : {{info.name}}</h1>
+
+
+<div class="mb-3">
+    <!-- one way bind => [value]="property" -->
+    <label for="">Enter your feedback: </label>
+    <!-- <input type="text" class="form-control" name="fback" id="fback" [value]="customerFeedback"> -->
+    <input type="text" class="form-control" name="fback" id="fback" [(ngModel)]="customerFeedback">
+
+</div>
+For test: {{customerFeedback}}
 
 
 
