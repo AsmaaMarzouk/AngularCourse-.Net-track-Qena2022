@@ -1,13 +1,12 @@
 <!--Part of Lab Assignment 2.a -->
-<div class="mb-3">
+<!-- <div class="mb-3">
     <label for="" >Categories:</label>
     <select name="" id="" class="form-control" [(ngModel)]="selectedCatID">
         <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
     </select>
 
     <p>For test category id : {{selectedCatID}}</p>
-</div>
-
+</div> -->
 
 <!-- ########################################################## -->
 <!-- Lecture Demo-->
@@ -26,7 +25,8 @@
       <!-- <th>Price</th> -->
       <th>Price in USD</th>
       <th>Price in EGP</th>
-      <th>Buy</th>
+      <th>Items count</th>
+      <th>Add to cart</th>
     </tr>
   </thead>
   <tbody>
@@ -47,7 +47,20 @@
 
     <!-- virtual containers => ng-container , ng-template , ng-content-->
 
-    <ng-container *ngFor="let prd of prdList;let i=index;trackBy:trackByProd">
+    <!-- Day2 -->
+    <!-- <ng-container *ngFor="let prd of prdList;let i=index;trackBy:trackByProd"> -->
+
+
+
+
+
+
+
+
+      <!-- Day3: change prdList to prdListOfCategory -->
+      <ng-container *ngFor="let prd of prdListOfCategory;let i=index;trackBy:trackByProd">
+
+
       <!-- Will work but not styled design -->
       <!-- <div *ngIf="prd.quantity>0"> -->
       <!-- <tr *ngIf="prd.quantity>0" [ngStyle]="{'background-color':(prd.quantity==0)?'lightyellow':'lightblue','color':(prd.quantity==0)?'red':'darkblue'}"> -->
@@ -92,12 +105,12 @@
         <!-- [disabled]="condition" -->
         <!-- [hidden]="condition" -->
 
-        <td><button [disabled]="prd.quantity==0" class="btn btn-primary" href="#" role="button">Buy</button></td>
+       
+        <td><input type="number" class="form-control" #itemsCount></td>
+        <td><button [disabled]="prd.quantity==0" class="btn btn-primary" href="#" role="button" (click)="updateTotalPrice(prd.price,itemsCount.value)">Add to cart</button></td>
         <!-- <td><button [hidden]="prd.quantity==0" class="btn btn-primary" href="#" role="button">Buy</button></td> -->
 
         <!-- </div> -->
-
-     
 
 
       </tr>
@@ -105,3 +118,10 @@
   </tbody>
 
 </table>
+
+<!-- For test total price -->
+<!-- <div class="bg-warning">
+  <h2>For test to be removed: </h2>
+  Order total price : {{orderTotalPrice}}
+
+</div> -->

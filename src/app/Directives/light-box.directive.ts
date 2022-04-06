@@ -1,10 +1,10 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 // class decorator
 @Directive({
   selector: '[LightBox]'
 })
-export class LightBoxDirective {
+export class LightBoxDirective implements OnChanges {
 // private elem:ElementRef
 // defaultColor:string ="yellow";
 // property decorator
@@ -17,7 +17,12 @@ export class LightBoxDirective {
     
     // elem.nativeElement.style.border="2px solid blue";
     // elem.nativeElement.style.border=`2px solid ${this.defaultColor}`;
-    elem.nativeElement.style.border=`2px solid ${this.defaultColor}`;
+    // elem.nativeElement.style.border=`2px solid ${this.defaultColor}`;
+  }
+  
+  ngOnChanges(): void {
+    this.elem.nativeElement.style.border=`2px solid ${this.defaultColor}`;
+   
   }
 // method decorator @HostListener('event')
   // events
