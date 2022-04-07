@@ -12,6 +12,9 @@ import { ProductsComponent } from './Components/products/products.component';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { ConvertUSDtoEGPPipe } from './pipes/convert-usdto-egp.pipe';
 import { OrderMasterComponent } from './Components/order-master/order-master.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { OrderMasterComponent } from './Components/order-master/order-master.com
     ProductsComponent,
     LightBoxDirective,
     ConvertUSDtoEGPPipe,
-    OrderMasterComponent
+    OrderMasterComponent,
+    NotfoundComponent,
+    MainLayoutComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

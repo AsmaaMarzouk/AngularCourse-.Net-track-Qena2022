@@ -1,0 +1,21 @@
+<div class="card" style="width:18rem;">
+  <img [src]="prd?.imgURL" class="card-img-top" alt="test">
+  <div class="card-body">
+    <h5 class="card-title">{{prd?.name}}</h5>
+    <h6>Price: {{prd?.price}}</h6>
+    <p class="card-text">Quantity: {{prd?.quantity}}</p>
+  </div>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button class="btn btn-success" [disabled]="currPrdId==prdIdList[0]" role="button" (click)="goPrevious()">Previous</button>
+    <button class="btn btn-info" role="button" (click)="goBack()">Back</button>
+    <button class="btn btn-danger" [disabled]="currPrdId==prdIdList[prdIdList.length-1]" role="button" (click)="goNext()">Next</button>
+
+
+  </div>
+</div>
+<hr>
+<div>
+  <label>Search Product: </label>
+  <input type="text" name="srch" id="srch" placeholder="Search product name" class="form-control" #prdName>
+  <button class="btn btn-primary" href="#" role="button" (click)="searchProduct(prdName.value)"> Search</button>
+</div>

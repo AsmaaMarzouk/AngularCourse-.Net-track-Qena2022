@@ -25,6 +25,7 @@
       <!-- <th>Price</th> -->
       <th>Price in USD</th>
       <th>Price in EGP</th>
+      <th>Details</th>
       <th>Items count</th>
       <th>Add to cart</th>
     </tr>
@@ -101,6 +102,13 @@
         <!-- <td>{{prd.price | currency: 'EUR':'code'}}</td> -->
         <td>{{prd.price | currency:'USD':'symbol'}}</td>
         <td>{{prd.price | convertUSDtoEGP:20 | currency: 'EGP'}}</td>
+        <!-- Day4:Go to details -->
+        <td><button class="btn btn-primary" href="#" role="button" (click)="openProductDetails(prd.id)">Details</button></td>
+        <!-- Another solution to details navigation -->
+        <!-- <td>
+        <a class="btn btn-primary" [routerLink]="['/Products',prd.id]" role="button">Details</a>
+      </td> -->
+
         <!-- property binding -->
         <!-- [disabled]="condition" -->
         <!-- [hidden]="condition" -->

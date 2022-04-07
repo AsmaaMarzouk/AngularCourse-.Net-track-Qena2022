@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategory } from 'src/app/Models/icategory';
 import { IPrduct } from 'src/app/Models/iprduct';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -8,7 +10,7 @@ import { IPrduct } from 'src/app/Models/iprduct';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit ,OnChanges{
-prdList:IPrduct[];
+
 // Day2
 // catList:ICategory[];
 // selectedCatID:number = 0;
@@ -36,20 +38,15 @@ orderTotalPrice:number = 0;
 
 
 
-  constructor() {
+// Day4: inject service in constructor
+  constructor(private prdservice:ProductService,private route:Router) {
+
      // declare event
     // create object from event EventEmitter
     this.totalPriceChanged=new EventEmitter<number>();
 
     // initialize array
-    this.prdList=[
-      {id:1,name:"Apple",price:20000,quantity:0,imgURL:"https://fakeimg.pl/250x100/",catID:1},
-      {id:15,name:"Samsung",price:10000,quantity:5,imgURL:"https://fakeimg.pl/250x100/",catID:1},
-      {id:7,name:"Dell",price:35000,quantity:1,imgURL:"https://fakeimg.pl/250x100/",catID:2},
-      {id:20,name:"HP",price:15000,quantity:10,imgURL:"https://fakeimg.pl/250x100/",catID:2},
-      {id:17,name:"Toshipa",price:38000,quantity:0,imgURL:"https://fakeimg.pl/250x100/",catID:3},
-      {id:8,name:"LG",price:50000,quantity:2,imgURL:"https://fakeimg.pl/250x100/",catID:3},
-    ];
+
 
     // Day2
     // this.catList=[
@@ -60,12 +57,17 @@ orderTotalPrice:number = 0;
 
    }
   ngOnChanges(): void {
-    this.getProductOfCat();
+    // this.getProductOfCat();
+    // Day4
+   this.prdListOfCategory= this.prdservice.getProductsByCategoryID(this.receivedCatID)
   }
 
   ngOnInit(): void {
     // For test
     // this.getProductOfCat();
+    // Day4
+    // In case we don't have @input => call in ngOnInit
+   this.prdListOfCategory= this.prdservice.getProductsByCategoryID(this.receivedCatID)
 
   }
 
@@ -78,19 +80,19 @@ orderTotalPrice:number = 0;
 
   // Day3
   // filter products
-  private getProductOfCat(){
+  // private getProductOfCat(){
 
-    // check if receivedCatID==0
-    if(this.receivedCatID==0)
-    {
-      // copy of prdList into prdListOfCategory
-      this.prdListOfCategory=Array.from(this.prdList);
-      return;
-    }
-    // prd=>given product
-    // 
-    this.prdListOfCategory=this.prdList.filter((prd)=>prd.catID==this.receivedCatID);
-  }
+  //   // check if receivedCatID==0
+  //   if(this.receivedCatID==0)
+  //   {
+  //     // copy of prdList into prdListOfCategory
+  //     this.prdListOfCategory=Array.from(this.prdList);
+  //     return;
+  //   }
+  //   // prd=>given product
+  //   // 
+  //   this.prdListOfCategory=this.prdList.filter((prd)=>prd.catID==this.receivedCatID);
+  // }
 
   updateTotalPrice(prdPrice:number,itemsCount:any){
     // this.orderTotalPrice+=(prdPrice* itemsCount);
@@ -105,5 +107,11 @@ orderTotalPrice:number = 0;
 
   }
 
-
+// Day4
+openProductDetails(prdID:number)
+{
+// navigate to another page 
+// navigate => array => path , parameter(productId)
+this.route.navigate(['Products',prdID]);
+}
 }
