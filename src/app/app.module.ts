@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -15,6 +15,7 @@ import { OrderMasterComponent } from './Components/order-master/order-master.com
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { AddnewproductComponent } from './Components/Admin/addnewproduct/addnewproduct.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,15 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
     OrderMasterComponent,
     NotfoundComponent,
     MainLayoutComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AddnewproductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

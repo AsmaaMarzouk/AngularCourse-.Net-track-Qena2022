@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddnewproductComponent } from './Components/Admin/addnewproduct/addnewproduct.component';
 import { HomeComponent } from './Components/home/home.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
@@ -29,6 +30,8 @@ const routes: Routes = [
   {path:'Products',component:ProductsComponent},
   {path:'Products/:pid',component:ProductDetailsComponent},
   {path:'Order',component:OrderMasterComponent},
+  {path:'NewProduct',component:AddnewproductComponent},
+  {path:'EditProduct/:pid',component:AddnewproductComponent},
   ]},
    {path:'**',component:NotfoundComponent},
 
