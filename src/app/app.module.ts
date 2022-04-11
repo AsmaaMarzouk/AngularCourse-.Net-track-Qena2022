@@ -7,7 +7,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/home/home.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './Components/products/products.component';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { ConvertUSDtoEGPPipe } from './pipes/convert-usdto-egp.pipe';
@@ -16,6 +16,10 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { AddnewproductComponent } from './Components/Admin/addnewproduct/addnewproduct.component';
+import { UserResgisterComponent } from './Components/user-resgister/user-resgister.component';
+import { UserLoginComponent } from './Components/user-login/user-login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -31,13 +35,18 @@ import { AddnewproductComponent } from './Components/Admin/addnewproduct/addnewp
     NotfoundComponent,
     MainLayoutComponent,
     ProductDetailsComponent,
-    AddnewproductComponent
+    AddnewproductComponent,
+    UserResgisterComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule
 
   ],
   providers: [],

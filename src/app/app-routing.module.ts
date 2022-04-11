@@ -7,6 +7,9 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { OrderMasterComponent } from './Components/order-master/order-master.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ProductsComponent } from './Components/products/products.component';
+import { UserLoginComponent } from './Components/user-login/user-login.component';
+import { UserResgisterComponent } from './Components/user-resgister/user-resgister.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 // array => objects of path each component
 // const routes: Routes = [
@@ -27,12 +30,14 @@ const routes: Routes = [
   {path:'',component:MainLayoutComponent,children:[
   {path:'',redirectTo:'/Home',pathMatch:'full'},
   {path:'Home',component:HomeComponent},
-  {path:'Products',component:ProductsComponent},
+  {path:'Products',component:ProductsComponent,canActivate:[AuthGuard]},
   {path:'Products/:pid',component:ProductDetailsComponent},
   {path:'Order',component:OrderMasterComponent},
   {path:'NewProduct',component:AddnewproductComponent},
   {path:'EditProduct/:pid',component:AddnewproductComponent},
   ]},
+  {path:'login',component:UserLoginComponent},
+  {path:'resgister',component:UserResgisterComponent},
    {path:'**',component:NotfoundComponent},
 
 

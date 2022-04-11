@@ -16,6 +16,8 @@ export class ProductsApiService {
       })
     };
   }
+
+  // 
   // function getAllProducts return observable type
   // observable => 
   getAllProducts():Observable<IPrduct[]>
